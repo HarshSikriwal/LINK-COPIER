@@ -2,4 +2,4 @@
 
 A Chrome extension for copying links of an active tab
 
-![Snippet of Link Copier](https://imgur.com/53m4Zgy)
+![Imgur](https://i.imgur.com/53m4Zgy.png)
