@@ -46,19 +46,19 @@ function renderLeads(leads) {
         <div class='mb-3'>
             <div>
                 <dt class='flex justify-between'>
-                    <div class='text-blue-600 text-lg overflow-hidden'>
+                    <div class='text-blue-600 basis-2/3 truncate text-lg'>
                         <a href='${leads[i]}' target="_blank">
                             ${leads[i]}
                         </a>
                     </div>
                     <div class='flex gap-2'>
                         <button id=copy${i} class="border-[1px] border-white rounded-md text-white px-2 text-sm">
-                            <img height="15px" width="15px" src="copy.png">
+                            <img height='15px' width='15px' src="copy.png">
                         </button>
-                        <button id=edit${i} class="border-[1px] border-white rounded-md text-white px-2 text-sm">
-                            <img height="15px" width="15px" src="Edit-Icon.png">
+                        <button id=edit${i} class="border-[1px]  border-white rounded-md text-white px-2 text-sm">
+                            <img height='15px' width='15px' src="Edit-Icon.png">
                         </button>
-                        <button id=delete${i} class="border-[1px] border-white rounded-md text-red-800 font-bold px-2 text-sm ">
+                        <button id=delete${i} class="border-[1px]  border-white rounded-md text-red-800 font-bold px-2 text-sm ">
                             X
                         </button>
                     </div>

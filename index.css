@@ -17,6 +17,7 @@
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;
+  height: 1px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -51,5 +52,5 @@
 }
 
 .line {
-  width: 400px;
+  width: 420px;
 }
