@@ -2,9 +2,9 @@
   <head>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="w-full bg-black">
-    <div class="m-2">
-      <div class="flex justify-between text-white text-sm">
+  <body class="relative bg-black w-[400px] h-[500px]">
+    <div class="mt-2 mx-2">
+      <div class="flex px-2 justify-between text-white text-sm">
         <button
           class="border-2 px-3 py-1 border-white rounded-md"
           id="save-tab"
@@ -19,16 +19,19 @@
           Delete all
         </button>
       </div>
-      <dl id="dl-el"></dl>
+      <dl
+        id="dl-el"
+        class="h-[70vh] px-3 overflow-y-auto custom-scrollbar"
+      ></dl>
     </div>
     <div
-      class="absolute w-full bottom-2 flex justify-between gap-8 p-2 text-white"
+      class="absolute px-4 w-full bottom-0 flex justify-between gap-8 p-2 text-white"
     >
       <input
         type="text"
         id="input-el"
         placeholder="Link other than URL"
-        class="px-3 py-1 grow rounded-md bg-black border-2 border-white placeholder:text-white placeholder:text-sm placeholder:px-2 placeholder:text-opacity-30"
+        class="px-2 py-1 grow rounded-md bg-black border-2 border-white placeholder:text-white placeholder:text-sm placeholder:px-0 placeholder:text-opacity-30"
       />
       <button
         class="border-2 text-sm px-3 py-1 border-white rounded-md"
