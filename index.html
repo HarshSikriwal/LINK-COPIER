@@ -1,13 +1,42 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-      <input type="text" id="input-el">
-      <button id="input-btn">SAVE INPUT</button>
-      <button id="save-tab">SAVE TAB</button>
-      <button id="delete-btn">DELETE ALL</button>
+  <head>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="w-full bg-black">
+    <div class="m-2">
+      <div class="flex justify-between text-white text-sm">
+        <button
+          class="border-2 px-3 py-1 border-white rounded-md"
+          id="save-tab"
+        >
+          Save Tab
+        </button>
+
+        <button
+          class="border-2 px-3 py-1 border-white text-red-800 font-bold rounded-md"
+          id="delete-btn"
+        >
+          Delete all
+        </button>
+      </div>
       <dl id="dl-el"></dl>
-      <script src="index.js"></script>
-    </body>
-</html>  
+    </div>
+    <div
+      class="absolute w-full bottom-2 flex justify-between gap-8 p-2 text-white"
+    >
+      <input
+        type="text"
+        id="input-el"
+        placeholder="Link other than URL"
+        class="px-3 py-1 grow rounded-md bg-black border-2 border-white placeholder:text-white placeholder:text-sm placeholder:px-2 placeholder:text-opacity-30"
+      />
+      <button
+        class="border-2 text-sm px-3 py-1 border-white rounded-md"
+        id="input-btn"
+      >
+        Save Input
+      </button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
