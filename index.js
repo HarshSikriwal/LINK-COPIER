@@ -23,10 +23,14 @@ if (leadsFromLocalStorage) {
   renderLeads(myLeads);
 }
 
-deleteBtn.ondblclick = () => {
-  localStorage.clear();
-  myLeads = [];
-  renderLeads(myLeads);
+deleteBtn.onclick = () => {
+  if (myLeads.length !== 0) {
+    const result = window.confirm("Confirm to delete all");
+
+    localStorage.clear();
+    myLeads = [];
+    renderLeads(myLeads);
+  }
 };
 
 saveTab.onclick = () => {
@@ -50,7 +54,7 @@ function renderLeads(leads) {
   let leadItems = "";
   for (i = 0; i < leads.length; i++) {
     leadItems += `
-        <div class='mb-3 '>
+        <div class='pt-3'>
             <div class='mb-2 group'>
                 <dt class='flex justify-between'>
                     <div class='text-blue-500 basis-2/3 truncate text-lg'>
@@ -59,8 +63,10 @@ function renderLeads(leads) {
                         </a>
                     </div>
                     <div class='flex gap-3'>
-                        <button id=copy${i} class="invisible icons group-hover:visible">
+                        <button id=copy${i} class="invisible relative icons group-hover:visible">
+                        
                             <img height='15px' width='15px' src="clipboard.svg">
+                            <div class='tooltip'>Copied!</div>
                         </button>
                         <button id=edit${i} class="invisible icons group-hover:visible">
                             <img height='15px' width='15px' src="pencil.svg">
@@ -117,7 +123,13 @@ function renderLeads(leads) {
     let copyIt = document.getElementById(`copy${i}`);
 
     copyIt.onclick = () => {
+      const tooltip = copyIt.querySelector(".tooltip");
+      console.log(copyIt, tooltip);
       navigator.clipboard.writeText(hrefMaker(leads[i]));
+      tooltip.style.opacity = 1;
+      setTimeout(() => {
+        tooltip.style.opacity = 0;
+      }, 2000);
     };
   }
 }
