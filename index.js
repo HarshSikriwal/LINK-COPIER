@@ -6,6 +6,13 @@ const deleteBtn = document.getElementById("delete-btn");
 const saveTab = document.getElementById("save-tab");
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 
+function hrefMaker(link) {
+  if (!link.startsWith("http://") && !link.startsWith("https://")) {
+    return "http://" + link;
+  }
+  return link;
+}
+
 function keymaker(key) {
   const newKey = key.split(" ").join("-");
   return newKey;
@@ -43,22 +50,22 @@ function renderLeads(leads) {
   let leadItems = "";
   for (i = 0; i < leads.length; i++) {
     leadItems += `
-        <div class='mb-3'>
-            <div>
+        <div class='mb-3 '>
+            <div class='mb-2 group'>
                 <dt class='flex justify-between'>
-                    <div class='text-blue-600 basis-2/3 truncate text-lg'>
-                        <a href='${leads[i]}' target="_blank">
+                    <div class='text-blue-500 basis-2/3 truncate text-lg'>
+                        <a href='${hrefMaker(leads[i])}' target="_blank">
                             ${leads[i]}
                         </a>
                     </div>
-                    <div class='flex gap-2'>
-                        <button id=copy${i} class="border-[1px] border-white rounded-md text-white px-2 text-sm">
-                            <img height='15px' width='15px' src="copy.png">
+                    <div class='flex gap-3'>
+                        <button id=copy${i} class="invisible icons group-hover:visible">
+                            <img height='15px' width='15px' src="clipboard.svg">
                         </button>
-                        <button id=edit${i} class="border-[1px]  border-white rounded-md text-white px-2 text-sm">
-                            <img height='15px' width='15px' src="Edit-Icon.png">
+                        <button id=edit${i} class="invisible icons group-hover:visible">
+                            <img height='15px' width='15px' src="pencil.svg">
                         </button>
-                        <button id=delete${i} class="border-[1px]  border-white rounded-md text-red-800 font-bold px-2 text-sm ">
+                        <button id=delete${i} class="invisible icons text-red-700 font-bold group-hover:visible">
                             X
                         </button>
                     </div>
@@ -92,7 +99,7 @@ function renderLeads(leads) {
     editEach.onclick = () => {
       line.textContent = "";
       const define = document.createElement("input");
-      define.style.width = 350;
+      define.style.width = 345;
       define.value = localStorage.getItem(leads[i]);
       const doneBtn = document.createElement("button");
       define.className = "inp";
@@ -110,15 +117,7 @@ function renderLeads(leads) {
     let copyIt = document.getElementById(`copy${i}`);
 
     copyIt.onclick = () => {
-      const contentToCopy = document.getElementById(lead);
-      const textToCopy = contentToCopy.textContent;
-
-      const tempInput = document.createElement("input");
-      tempInput.value = textToCopy;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
+      navigator.clipboard.writeText(hrefMaker(leads[i]));
     };
   }
 }

@@ -54,3 +54,13 @@
 .line {
   width: 420px;
 }
+
+button:not(.icons) {
+  background-color: rgb(23, 23, 23);
+  border-width: 0 !important;
+}
+
+.icons {
+  padding: 0 2px;
+  font-size: medium;
+}
